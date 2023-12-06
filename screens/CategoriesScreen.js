@@ -8,7 +8,11 @@ function CategoriesScreen({ navigation }) {
 
   function renderCategoryItem(itemData) {
     function pressHandler() {
-      navigation.navigate('MealsOverview');
+      // note that the 2nd parameter being passed in the navigate method is a params object,
+      // which is passed down to the MealsOverviewScreen and can be accessed as route.params
+      navigation.navigate('MealsOverview', {
+        categoryId: itemData.item.id
+      });
     }
   
     return <CategoryGridTile title={itemData.item.title} color={itemData.item.color} onPress={pressHandler} />;
